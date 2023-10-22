@@ -6,18 +6,20 @@
     color: #2a2a2a;
     box-sizing: border-box;
     font-family: 'Manrope', sans-serif;
-} 
+}
 
 i {
     cursor: pointer;
     color: #8f8f95;
     font-size: 18px;
 }
+
 i:hover {
     cursor: pointer;
     color: #1C4115;
     font-size: 18px;
 }
+
 svg:hover {
     cursor: pointer;
 }
@@ -51,6 +53,7 @@ button {
     font-size: 1.2rem;
     color: #23123d;
 }
+
 .empty-state-text {
     font-size: 1.2rem;
     color: #23123d;
@@ -71,8 +74,9 @@ button {
     border-radius: 0.5rem;
     cursor: pointer;
 }
+
 .create-button-box button:hover {
-   background: radial-gradient(circle, rgba(76,72,248,1) 0%, rgba(236,50,156,1) 100%);
+    background: radial-gradient(circle, rgba(76, 72, 248, 1) 0%, rgba(236, 50, 156, 1) 100%);
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -110,7 +114,7 @@ button {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1rem;
-    row-gap: 1rem;   
+    row-gap: 1rem;
 }
 
 .emptystate-div {
@@ -124,7 +128,7 @@ button {
     justify-content: center;
 }
 
-.emptystate-div-hide{
+.emptystate-div-hide {
     display: none;
 }
 
@@ -137,7 +141,7 @@ button {
     display: flex;
     flex-direction: column;
     row-gap: 1.2rem;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
 .name-of-website {
@@ -232,6 +236,7 @@ button {
     color: #fff;
     background-color: #d25d5d;
 }
+
 .second-button:hover {
     padding: 8px 14px;
     border: none;
@@ -250,6 +255,7 @@ button {
     color: #8f8f95;
     background-color: transparent;
 }
+
 .first-button:hover {
     border: none;
     outline: none;
@@ -303,12 +309,14 @@ button {
     border-radius: 0.6rem;
     width: 30%;
 }
+
 .brands-container {
     display: flex;
     flex-direction: row;
     column-gap: 2rem;
     align-items: center;
 }
+
 /* modal overlay section */
 .modal-overlay {
     background-color: rgba(0, 0, 0, 0.5);
@@ -362,7 +370,7 @@ button {
 .modal-title-box {
     width: 100%;
     height: auto;
-    padding: 1rem ;
+    padding: 1rem;
 }
 
 .modal-title-box h3 {
@@ -430,8 +438,9 @@ textarea {
     border-radius: 0.5rem;
     cursor: pointer;
 }
+
 .form-button:hover {
-    background: radial-gradient(circle, rgba(76,72,248,1) 0%, rgba(236,50,156,1) 100%);
+    background: radial-gradient(circle, rgba(76, 72, 248, 1) 0%, rgba(236, 50, 156, 1) 100%);
     color: white;
     width: 100%;
     padding: 1rem 0;
@@ -455,8 +464,8 @@ textarea {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1rem;
     row-gap: 1rem;
-  }
-  
+}
+
 
 @media (min-width: 360px) and (max-width: 539px) {
     .first-section {
@@ -491,6 +500,6 @@ textarea {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 1rem;
-        row-gap: 1rem;   
+        row-gap: 1rem;
     }
 }

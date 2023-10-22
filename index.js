@@ -1,3 +1,4 @@
+// Get needed element by Id's from the HTML file.
 let createButton = document.getElementById("button");
 let modalOverlay = document.getElementById("modalOverlay");
 let closeModalIcon = document.getElementById("close-modal-icon");
@@ -20,6 +21,7 @@ let whatsapp = document.getElementById("whatsapp")
 let gmail = document.getElementById("gmail")
 
 
+// function to reveal and close the modal overlay(the form to create resources).
 function revealModalOverlay() {
   modalOverlay.classList.remove("modal-overlay");
   modalOverlay.classList.add("modal-overlay-visible");
@@ -36,6 +38,7 @@ function closeBackModalOverlay() {
 closeModalIcon.addEventListener("click", closeBackModalOverlay);
 
 
+// function to reveal and hide empty state.
 function hideEmptyState() {
   if (resources.length > 0) {
     // Hide empty state
@@ -52,13 +55,6 @@ function hideEmptyState() {
   }
 }
 
-// 1. when the data is collected from the form and store it in a variable
-// 2. Then we put it in an object literal
-// 3.Then we arrange the object into an array to make it clean
-// 4. Then send them to the local storage becos the LS saves data in frontend like back-end is to front-end. but now we av no backend
-// 5. we then get it back from the LS tp print on UI.
-
-// to prevent default behaviour bcos if the form don't see any backend, it throws away the information(data) collected
 
 // lets put the object inside an array outside the handleForm function
 
@@ -193,6 +189,8 @@ function printResourcesOnUI() {
   hideEmptyState()
 }
 
+
+// function to reveal and close the delete options when the icon is clicked
 function revealDeleteOverlay() {
   deleteOverlay.classList.remove("delete-overlay");
   deleteOverlay.classList.add("delete-overlay-visible");
@@ -202,6 +200,7 @@ function revealShareOverlay() {
   shareOverlay.classList.add("share-overlay-visible");
 }
 
+// function to reveal and close the share options when the icon is clicked
 function closeBackShareOverlay() {
   if (shareOverlay.classList.contains("share-overlay-visible")) {
     shareOverlay.classList.remove("share-overlay-visible");
@@ -217,6 +216,8 @@ function closeBackDeleteOverlay() {
   }
 }
 cancelButton.addEventListener("click", closeBackDeleteOverlay);
+
+
 
 function deleteResource(siteLinkToDelete) {
   resources.forEach(function (resource, index) {
@@ -249,6 +250,16 @@ function pinterestShare() {
 pinterest.addEventListener("click", pinterestShare)
 
 
+/* 
+  1. The values are collected from the form and then stored in variables
+  2. Then I created an object literal for the variables
+  3. I arrange the object into an array to make it clean
+  4. Then send them to the local storage becos the LS saves data in frontend like     back-end is to front-end.
+  5. Get it back from the LS to print on UI.
+*/
+
+// to prevent default behaviour bcos if the form don't see any backend, it throws away the information(data) collected
+
 resourceForm.addEventListener("submit", handleForm);
 function handleForm(event) {
   event.preventDefault();
@@ -259,18 +270,16 @@ function handleForm(event) {
   let description = descriptionOfWebsite.value;
 
   let isValid = true;
-  // Basic validation; you can do more
+  // Basic validation;
   if (nameOfWebsite.value === "") {
-    nameOfWebsite.style.border = "1px solid red";
+     nameOfWebsite.style.border = "1px solid red";
     isValid = false
   }
 
   if (linkOfWebsite.value === "") {
     linkOfWebsite.style.border = "1px solid red";
     isValid = false
-  } else {
-    linkOfWebsite.style.border = ""; // Reset the border
-  }
+  } 
 
   // if (descriptionOfWebsite.value === "") {
   //   descriptionOfWebsite.style.border = "1px solid red";
