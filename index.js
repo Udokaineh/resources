@@ -157,11 +157,7 @@ pinIcon.addEventListener("click", function () {
     // Update the pinned resources in localStorage
     localStorage.setItem("pinnedResources", JSON.stringify(pinnedResources));
 
-    // Remove the resource from the original order
-    const originalIndex = originalOrder.indexOf(index);
-    if (originalIndex !== -1) {
-      originalOrder.splice(originalIndex, 1);
-    }
+    originalIndex = originalOrder.indexOf(index); // Store the original index
 
     // Update the UI to show the pinned resource
     pinWrapper.append(resourceDiv);
