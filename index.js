@@ -146,24 +146,39 @@ function printResourcesOnUI() {
     pinIcon.setAttribute("title", "Pin")
 
     let isPinned = false;
-    pinIcon.addEventListener("click", function () {
-      isPinned = !isPinned; // Toggle the pinned state
-      if (isPinned) {
-        pinnedResources.push(resources[index]);
-        localStorage.setItem("pinnedResources", JSON.stringify(pinnedResources));
-        pinWrapper.append(resourceDiv)
-        resourcesSection.append(pinWrapper)
-      } else {
-        const pinnedIndex = pinnedResources.findIndex((res) => res.siteLink === resources[index].siteLink);
-        if (pinnedIndex !== -1) {
-          pinnedResources.splice(pinnedIndex, 1);
-          localStorage.setItem("pinnedResources", JSON.stringify(pinnedResources));
-        }
-        pinWrapper.removeChild(resourceDiv)
-        resourcesSection.removeChild(pinWrapper)
-        resourceWrapper.insertBefore(resourceDiv, resourceWrapper.children[originalOrder[index]])
-      }
-    });
+
+pinIcon.addEventListener("click", function () {
+  isPinned = !isPinned;  // Toggle the pinned state
+
+  if (isPinned) {
+    // Pin the resource
+    pinnedResources.push(resources[index]);
+
+    // Update the pinned resources in localStorage
+    localStorage.setItem("pinnedResources", JSON.stringify(pinnedResources));
+
+    // Remove the resource from the original order
+    const originalIndex = originalOrder.indexOf(index);
+    if (originalIndex !== -1) {
+      originalOrder.splice(originalIndex, 1);
+    }
+
+    // Update the UI to show the pinned resource
+    pinWrapper.append(resourceDiv);
+    resourcesSection.append(pinWrapper);
+  } else {
+    // Unpin the resource
+    const pinnedIndex = pinnedResources.findIndex((res) => res.siteLink === resources[index].siteLink);
+    if (pinnedIndex !== -1) {
+      pinnedResources.splice(pinnedIndex, 1);
+      // Update the pinned resources in localStorage
+      localStorage.setItem("pinnedResources", JSON.stringify(pinnedResources));
+
+      // Restore the resource to its original position
+      resourceWrapper.insertBefore(resourceDiv, resourceWrapper.children[originalOrder.indexOf(index)]);
+    }
+  }
+});
 
     let shareIcon = document.createElement("i");
     shareIcon.classList.add("fa", "fa-share-nodes");
